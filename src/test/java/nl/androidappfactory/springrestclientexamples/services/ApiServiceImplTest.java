@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import lombok.extern.slf4j.Slf4j;
 import nl.androidappfactory.api.domain.User;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -34,6 +35,17 @@ public class ApiServiceImplTest {
 
 		// NOTE, for some reason the api will alway return one more user than the given limit....
 		log.debug("after getUsers: " + users);
+		assertEquals(4, users.size());
+	}
+
+	@Test
+	public void testGetUsersReactive() {
+
+		Mono<Integer> limit = Mono.just(new Integer(3));
+		List<User> users = apiService.getUsers(limit).collectList().block();
+
+		// NOTE, for some reason the api will alway return one more user than the given limit....
+		log.debug("after getUsers #: " + users.size());
 		assertEquals(4, users.size());
 	}
 

@@ -54,8 +54,8 @@ public class RestTemplateExamples {
 
 		// Java object to parse to JSON
 		Map<String, Object> postMap = new HashMap<>();
-		postMap.put("firstname", "Joe");
-		postMap.put("lastname", "Buck");
+		postMap.put("firstname", "Hans");
+		postMap.put("lastname", "van M");
 
 		JsonNode jsonNode = restTemplate.postForObject(apiUrl, postMap, JsonNode.class);
 
@@ -73,8 +73,8 @@ public class RestTemplateExamples {
 
 		// Java object to parse to JSON
 		Map<String, Object> postMap = new HashMap<>();
-		postMap.put("firstname", "Micheal");
-		postMap.put("lastname", "Weston");
+		postMap.put("firstname", "JLM");
+		postMap.put("lastname", "Van");
 
 		JsonNode jsonNode = restTemplate.postForObject(apiUrl, postMap, JsonNode.class);
 
@@ -87,8 +87,8 @@ public class RestTemplateExamples {
 
 		System.out.println("Created customer id: " + id);
 
-		postMap.put("firstname", "Micheal 2");
-		postMap.put("lastname", "Weston 2");
+		postMap.put("firstname", "JLM 2");
+		postMap.put("lastname", "van M 2");
 
 		restTemplate.put(apiUrl + id, postMap);
 
